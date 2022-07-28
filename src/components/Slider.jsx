@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import ArrowLeftOutlinedIcon from "@material-ui/icons/ArrowLeftOutlined";
 import ArrowRightOutlinedIcon from "@material-ui/icons/ArrowRightOutlined";
