@@ -47,4 +47,39 @@ export const categories = [
   },
 ];
 
-export default { sliderItems, categories };
+export const popularProducts = [
+  {
+    id: 1,
+    img: "https://w7.pngwing.com/pngs/512/604/png-transparent-t-shirt-polo-shirt-clothing-top-polo-shirt-white-polo-shirt-white-fashion-active-shirt-thumbnail.png",
+  },
+  {
+    id: 2,
+    img: "https://w7.pngwing.com/pngs/512/604/png-transparent-t-shirt-polo-shirt-clothing-top-polo-shirt-white-polo-shirt-white-fashion-active-shirt-thumbnail.png",
+  },
+  {
+    id: 3,
+    img: "https://w7.pngwing.com/pngs/512/604/png-transparent-t-shirt-polo-shirt-clothing-top-polo-shirt-white-polo-shirt-white-fashion-active-shirt-thumbnail.png",
+  },
+  {
+    id: 4,
+    img: "https://w7.pngwing.com/pngs/512/604/png-transparent-t-shirt-polo-shirt-clothing-top-polo-shirt-white-polo-shirt-white-fashion-active-shirt-thumbnail.png",
+  },
+  {
+    id: 5,
+    img: "https://w7.pngwing.com/pngs/512/604/png-transparent-t-shirt-polo-shirt-clothing-top-polo-shirt-white-polo-shirt-white-fashion-active-shirt-thumbnail.png",
+  },
+  {
+    id: 6,
+    img: "https://w7.pngwing.com/pngs/512/604/png-transparent-t-shirt-polo-shirt-clothing-top-polo-shirt-white-polo-shirt-white-fashion-active-shirt-thumbnail.png",
+  },
+  {
+    id: 7,
+    img: "https://w7.pngwing.com/pngs/512/604/png-transparent-t-shirt-polo-shirt-clothing-top-polo-shirt-white-polo-shirt-white-fashion-active-shirt-thumbnail.png",
+  },
+  {
+    id: 8,
+    img: "https://w7.pngwing.com/pngs/512/604/png-transparent-t-shirt-polo-shirt-clothing-top-polo-shirt-white-polo-shirt-white-fashion-active-shirt-thumbnail.png",
+  },
+];
+
+export default { sliderItems, categories, popularProducts };
