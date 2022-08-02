@@ -1,12 +1,15 @@
+import { Add, Remove } from "@material-ui/icons";
 import React from "react";
 import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import { mobile } from "../responsive";
 
 const Container = styled.div``;
 const Wrapper = styled.div`
   padding: 20px;
+  ${mobile({ padding: "10px" })}
 `;
 const Title = styled.h1`
   font-weight: 300;
@@ -26,7 +29,9 @@ const TopButton = styled.button`
     props.type === "filled" ? "black" : "transparent"};
   color: ${(props) => props.type === "filled" && "white"};
 `;
-const TopTexts = styled.div``;
+const TopTexts = styled.div`
+  ${mobile({ display: "none" })}
+`;
 const TopText = styled.span`
   text-decoration: underline;
   cursor: pointer;
@@ -35,6 +40,7 @@ const TopText = styled.span`
 const Bottom = styled.div`
   display: flex;
   justify-content: space-between;
+  ${mobile({ flexDirection: "column" })}
 `;
 const Info = styled.div`
   flex: 3;
@@ -42,6 +48,8 @@ const Info = styled.div`
 const Product = styled.div`
   display: flex;
   justify-content: space-between;
+  ${mobile({ flexDirection: "column" })}
+  ${mobile({ justifyContent: "space-around" })}
 `;
 const ProductDetails = styled.div`
   flex: 2;
@@ -51,6 +59,7 @@ const Image = styled.img`
   margin-top: 50px;
   max-width: 30%;
   height: 200px;
+  object-fit: cover;
 `;
 const Details = styled.div`
   padding: 20px;
@@ -58,6 +67,7 @@ const Details = styled.div`
   flex-direction: column;
   justify-content: space-around;
   margin-top: 30px;
+  ${mobile({ marginLeft: "30px" })}
 `;
 const ProductName = styled.span``;
 const ProductId = styled.span``;
@@ -75,9 +85,51 @@ const PriceDetails = styled.div`
   justify-content: center;
   flex-direction: column;
 `;
-
+const ProductAmountContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+`;
+const ProductAmount = styled.div`
+  font-size: 24px;
+  margin: 5px;
+`;
+const ProductPrice = styled.div`
+  font-size: 30px;
+  font-weight: 200;
+  ${mobile({ marginBottom: "20px" })}
+`;
+const Hr = styled.hr`
+  background-color: #eee;
+  border: none;
+  height: 1px;
+  margin-top: 20px;
+`;
 const Summary = styled.div`
   flex: 1;
+  border: 0.5px solid lightgray;
+  border-radius: 10px;
+  padding: 20px;
+  height: 50vh;
+`;
+const SummaryTitle = styled.h2`
+  font-weight: 200;
+`;
+const SummaryItem = styled.div`
+  margin: 30px 0;
+  display: flex;
+  justify-content: space-between;
+  font-weight: ${(props) => props.type === "total" && "500"};
+  font-size: ${(props) => props.type === "total" && "24px"};
+`;
+const SummaryItemText = styled.span``;
+const SummaryItemPrice = styled.span``;
+const Button = styled.button`
+  cursor: pointer;
+  width: 100%;
+  padding: 10px;
+  background-color: black;
+  color: white;
 `;
 const Cart = () => {
   return (
@@ -112,10 +164,58 @@ const Cart = () => {
                   </ProductSize>
                 </Details>
               </ProductDetails>
-              <PriceDetails>Price</PriceDetails>
+              <PriceDetails>
+                <ProductAmountContainer>
+                  <Add style={{ cursor: "pointer" }} />
+                  <ProductAmount>2</ProductAmount>
+                  <Remove style={{ cursor: "pointer" }} />
+                </ProductAmountContainer>
+                <ProductPrice>$ 30</ProductPrice>
+              </PriceDetails>
+            </Product>
+            <Hr />
+            <Product>
+              <ProductDetails>
+                <Image src="https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=1600" />
+                <Details>
+                  <ProductName>
+                    <b>Product:</b> Jessie Thunder SHoes
+                  </ProductName>
+                  <ProductId>
+                    <b>ID:</b> 987987097
+                  </ProductId>
+                  <ProductColor color="black" />
+                  <ProductSize>
+                    <b>Size:</b> 37.5
+                  </ProductSize>
+                </Details>
+              </ProductDetails>
+              <PriceDetails>
+                <ProductAmountContainer>
+                  <Add style={{ cursor: "pointer" }} />
+                  <ProductAmount>2</ProductAmount>
+                  <Remove style={{ cursor: "pointer" }} />
+                </ProductAmountContainer>
+                <ProductPrice>$ 30</ProductPrice>
+              </PriceDetails>
             </Product>
           </Info>
-          <Summary></Summary>
+          <Summary>
+            <SummaryTitle>Oreder Summary</SummaryTitle>
+            <SummaryItem>
+              <SummaryItemText>Subtotal</SummaryItemText>
+              <SummaryItemPrice>$ 80</SummaryItemPrice>
+            </SummaryItem>
+            <SummaryItem>
+              <SummaryItemText>Shipping Discount</SummaryItemText>
+              <SummaryItemPrice>$ -5.90</SummaryItemPrice>
+            </SummaryItem>
+            <SummaryItem type="total">
+              <SummaryItemText>Total</SummaryItemText>
+              <SummaryItemPrice>$ 80</SummaryItemPrice>
+            </SummaryItem>
+            <Button>Checkout Now</Button>
+          </Summary>
         </Bottom>
       </Wrapper>
       <Footer />
